@@ -36,7 +36,7 @@ mod tests {
         node.add_left(node1);
         node.add_right(node2);
 
-        let nodes = node.find_all(&(|node| node.val == 2 || node.val == 5));
+        let nodes = node.find_all(|node| node.val == 2 || node.val == 5);
         // Should find node5 and then node2.
         assert!(nodes.len() == 2);
         assert!(nodes[0].val == 5);
@@ -61,8 +61,7 @@ mod tests {
         node.add_left(node1);
         node.add_right(node2);
 
-        println!("Found nodes with val of 1:");
-        let nodes =  node.find_all_bfs(&(|node| node.val == 2 || node.val == 5));
+        let nodes =  node.find_all_bfs(|node| node.val == 2 || node.val == 5);
         // Should find node2 and then node5.
         assert!(nodes.len() == 2);
         assert!(nodes[0].val == 2);
